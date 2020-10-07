@@ -20,6 +20,7 @@ public class program {
 			e.printStackTrace();
 		}
         String in = sb.toString();
+        System.out.println(in);
 		int i,judge=0,begin=0;
 		String str;
 		for(i=0;i<in.length();i++) {
