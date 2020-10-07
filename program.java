@@ -20,10 +20,11 @@ public class program {
 			e.printStackTrace();
 		}
         String in = sb.toString();
-        System.out.println(in);
 		int i,judge=0,begin=0;
 		String str;
 		for(i=0;i<in.length();i++) {
+			if(in.charAt(i)==' '||in.charAt(i)=='\t')
+				continue;
 			if(in.charAt(i)=='+'||in.charAt(i)=='*'||in.charAt(i)==','||in.charAt(i)=='('||in.charAt(i)==')') {
 				if(judge==0) {
 					begin=i+1;
