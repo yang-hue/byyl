@@ -2,7 +2,7 @@ import java.io.*;
 
 public class program {
 	public static void main(String argv[]) {
-		File file = new File("argv[0]");
+		File file = new File("argv[1]");
 		StringBuilder sb = new StringBuilder();
 		try {
 			FileReader reader = new FileReader(file);
