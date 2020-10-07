@@ -177,6 +177,8 @@ public class program {
 	    		}
 	    		else if(judge==2)
 	    			System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
+	    		judge=0;
+	    		begin=0;
 	        }
 	        bReader.close();
 		} catch (FileNotFoundException e) {
