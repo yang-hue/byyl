@@ -13,10 +13,41 @@ public class program {
 	    		String str;
 	    		for(i=0;i<in.length();i++) {
 	    			if(in.charAt(i)==' '||in.charAt(i)=='\t') {
-	    				begin=i+1;
-	    				continue;
+	    				if(judge==0) {
+	    					begin=i+1;
+	    				}
+	    				else {
+	    					if(judge==1) {
+	    						str=in.substring(begin,i);
+	    						if(str.equals("BEGIN")) {
+	    							System.out.println("Begin");
+	    						}
+	    						else if(str.equals("END")) {
+	    							System.out.println("End");
+	    						}
+	    						else if(str.equals("FOR")) {
+	    							System.out.println("For");
+	    						}
+	    						else if(str.equals("IF")) {
+	    							System.out.println("If");
+	    						}
+	    						else if(str.equals("THEN")) {
+	    							System.out.println("Then");
+	    						}
+	    						else if(str.equals("ELSE")) {
+	    							System.out.println("Else");
+	    						}
+	    						else
+	    							System.out.println("Ident("+in.substring(begin,i)+")");
+	    						begin=i+1;
+	    					}
+	    					else if(judge==2) {
+	    						System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
+	    						begin=i+1;
+	    					}
+	    				}
 	    			}
-	    			if(in.charAt(i)=='+'||in.charAt(i)=='*'||in.charAt(i)==','||in.charAt(i)=='('||in.charAt(i)==')') {
+	    			else if(in.charAt(i)=='+'||in.charAt(i)=='*'||in.charAt(i)==','||in.charAt(i)=='('||in.charAt(i)==')') {
 	    				if(judge==0) {
 	    					begin=i+1;
 	    				}
