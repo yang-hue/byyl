@@ -12,8 +12,10 @@ public class program {
 	        	int i,judge=0,begin=0;
 	    		String str;
 	    		for(i=0;i<in.length();i++) {
-	    			if(in.charAt(i)==' '||in.charAt(i)=='\t')
+	    			if(in.charAt(i)==' '||in.charAt(i)=='\t') {
+	    				begin=i+1;
 	    				continue;
+	    			}
 	    			if(in.charAt(i)=='+'||in.charAt(i)=='*'||in.charAt(i)==','||in.charAt(i)=='('||in.charAt(i)==')') {
 	    				if(judge==0) {
 	    					begin=i+1;
