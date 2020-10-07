@@ -1,8 +1,8 @@
 import java.io.*;
 
 public class program {
-	public static void main(String argv[]) {
-		File file = new File("argv[1]");
+	public static void main(String args[]) {
+		File file = new File(args[0]);
 		StringBuilder sb = new StringBuilder();
 		try {
 			FileReader reader = new FileReader(file);
