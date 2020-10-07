@@ -149,7 +149,7 @@ public class program {
 	    			else {
 	    				System.out.println("Unknown");
 	    				judge=0;
-	    				return;
+	    				System.exit(0);
 	    			}
 	    		}
 	    		if(judge==1) {
