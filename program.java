@@ -1,29 +1,35 @@
-import java.util.*;
+import java.io.*;
 
 public class program {
 	public static void main(String argc[]) {
-		Scanner read = new Scanner(System.in);
-		String input=read.nextLine();
+		File file = new File("$input");
+		StringBuilder sb = new StringBuilder();
+		try {
+			FileReader reader = new FileReader(file);
+			BufferedReader bReader = new BufferedReader(reader);
+	        String s = "";
+	        while ((s =bReader.readLine()) != null) {
+	            sb.append(s);
+	        }
+	        bReader.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        String in = sb.toString();
 		int i,judge=0,begin=0;
 		String str;
-		for(i=0;i<input.length();i++) {
-			if(input.charAt(i)=='+'||input.charAt(i)=='*'||input.charAt(i)==','||input.charAt(i)=='('||input.charAt(i)==')') {
-				if(input.charAt(i)=='+')
-					System.out.println("Plus");
-				if(input.charAt(i)=='*')
-					System.out.println("Star");
-				if(input.charAt(i)==',')
-					System.out.println("Comma");
-				if(input.charAt(i)=='(')
-					System.out.println("LParenthesis");
-				if(input.charAt(i)==')')
-					System.out.println("RParenthesis");
+		for(i=0;i<in.length();i++) {
+			if(in.charAt(i)=='+'||in.charAt(i)=='*'||in.charAt(i)==','||in.charAt(i)=='('||in.charAt(i)==')') {
 				if(judge==0) {
 					begin=i+1;
 				}
 				else {
 					if(judge==1) {
-						str=input.substring(begin,i);
+						str=in.substring(begin,i);
 						if(str.equals("BEGIN")) {
 							System.out.println("Begin");
 						}
@@ -43,35 +49,45 @@ public class program {
 							System.out.println("Else");
 						}
 						else
-							System.out.println("Ident("+input.substring(begin,i)+")");
+							System.out.println("Ident("+in.substring(begin,i)+")");
 						begin=i+1;
 					}
 					else if(judge==2) {
-						System.out.println("Int("+Integer.valueOf(input.substring(begin,i))+")");
+						System.out.println("Int("+Integer.valueOf(in.substring(begin,i))+")");
 						begin=i+1;
 					}
 				}
+				if(in.charAt(i)=='+')
+					System.out.println("Plus");
+				if(in.charAt(i)=='*')
+					System.out.println("Star");
+				if(in.charAt(i)==',')
+					System.out.println("Comma");
+				if(in.charAt(i)=='(')
+					System.out.println("LParenthesis");
+				if(in.charAt(i)==')')
+					System.out.println("RParenthesis");
 				judge=0;
 			}
-			else if(input.charAt(i)<='9'&&input.charAt(i)>='0') {
+			else if(in.charAt(i)<='9'&&in.charAt(i)>='0') {
 				if(judge==0)
 					judge=2;
 			}
-			else if(input.charAt(i)<='z'&&input.charAt(i)>='a'||input.charAt(i)<='Z'&&input.charAt(i)>='A') {
+			else if(in.charAt(i)<='z'&&in.charAt(i)>='a'||in.charAt(i)<='Z'&&in.charAt(i)>='A') {
 				if(judge==0) {
 					judge=1;
 				}
 				else {
 					if(judge==2) {
-						System.out.println("Int("+Integer.valueOf(input.substring(begin,i))+")");
+						System.out.println("Int("+Integer.valueOf(in.substring(begin,i))+")");
 						begin=i;
 						judge=1;
 					}
 				}
 			}
-			else if(input.charAt(i)==':') {
+			else if(in.charAt(i)==':') {
 				if(judge==1) {
-					str=input.substring(begin,i);
+					str=in.substring(begin,i);
 					if(str.equals("BEGIN")) {
 						System.out.println("Begin");
 					}
@@ -91,12 +107,12 @@ public class program {
 						System.out.println("Else");
 					}
 					else
-						System.out.println("Ident("+input.substring(begin,i)+")");
+						System.out.println("Ident("+in.substring(begin,i)+")");
 				}
 				else if(judge==2) {
-					System.out.println("Int("+Integer.valueOf(input.substring(begin,i))+")");
+					System.out.println("Int("+Integer.valueOf(in.substring(begin,i))+")");
 				}
-				if(i+1<input.length()&&input.charAt(i+1)=='=') {
+				if(i+1<in.length()&&in.charAt(i+1)=='=') {
 					System.out.println("Assign");
 					i++;
 				}
@@ -112,7 +128,7 @@ public class program {
 			}
 		}
 		if(judge==1) {
-			str=input.substring(begin,i);
+			str=in.substring(begin,i);
 			if(str.equals("BEGIN")) {
 				System.out.println("Begin");
 			}
@@ -132,9 +148,9 @@ public class program {
 				System.out.println("Else");
 			}
 			else
-				System.out.println("Ident("+input.substring(begin,i)+")");
+				System.out.println("Ident("+in.substring(begin,i)+")");
 		}
 		else if(judge==2)
-			System.out.println("Int("+Integer.valueOf(input.substring(begin,i))+")");
+			System.out.println("Int("+Integer.valueOf(in.substring(begin,i))+")");
 	}
 }
