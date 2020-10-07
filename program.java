@@ -47,6 +47,7 @@ public class program {
 	    						begin=i+1;
 	    					}
 	    				}
+	    				judge=0;
 	    			}
 	    			else if(in.charAt(i)=='+'||in.charAt(i)=='*'||in.charAt(i)==','||in.charAt(i)=='('||in.charAt(i)==')') {
 	    				if(judge==0) {
