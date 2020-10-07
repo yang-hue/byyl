@@ -124,7 +124,7 @@ public class program {
 			}
 			else {
 				System.out.println("Unknown");
-				return;
+				break;
 			}
 		}
 		if(judge==1) {
