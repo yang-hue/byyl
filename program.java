@@ -42,7 +42,8 @@ public class program {
 	    						begin=i+1;
 	    					}
 	    					else if(judge==2) {
-	    						System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
+	    						if(in.substring(begin,i).length()!=0)
+	    							System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
 	    						begin=i+1;
 	    					}
 	    				}
@@ -77,7 +78,8 @@ public class program {
 	    						begin=i+1;
 	    					}
 	    					else if(judge==2) {
-	    						System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
+	    						if(in.substring(begin,i).length()!=0)
+	    							System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
 	    						begin=i+1;
 	    					}
 	    				}
@@ -103,7 +105,8 @@ public class program {
 	    				}
 	    				else {
 	    					if(judge==2) {
-	    						System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
+	    						if(in.substring(begin,i).length()!=0)
+	    							System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
 	    						begin=i;
 	    						judge=1;
 	    					}
@@ -134,7 +137,8 @@ public class program {
 	    						System.out.println("Ident("+in.substring(begin,i)+")");
 	    				}
 	    				else if(judge==2) {
-	    					System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
+	    					if(in.substring(begin,i).length()!=0)
+	    						System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
 	    				}
 	    				if(i+1<in.length()&&in.charAt(i+1)=='=') {
 	    					System.out.println("Assign");
@@ -176,7 +180,8 @@ public class program {
 	    				System.out.println("Ident("+in.substring(begin,i)+")");
 	    		}
 	    		else if(judge==2) {
-	    			System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
+	    			if(in.substring(begin,i).length()!=0)
+	    				System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
 	    		}
 	    		judge=0;
 	    		begin=0;
