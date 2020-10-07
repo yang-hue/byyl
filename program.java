@@ -3,6 +3,7 @@ import java.io.*;
 public class program {
 	public static void main(String args[]) {
         String in = args[0];
+        System.out.println(in);
 		int i,judge=0,begin=0;
 		String str;
 		for(i=0;i<in.length();i++) {
