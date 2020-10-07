@@ -6,13 +6,13 @@ public class program {
 		try {
 			FileReader reader = new FileReader(file);
 			BufferedReader bReader = new BufferedReader(reader);
-	        String s = "";
+	        String s = null;
 	        while ((s =bReader.readLine()) != null) {
 	        	String in=s;
 	        	int i,judge=0,begin=0;
 	    		String str;
 	    		for(i=0;i<in.length();i++) {
-	    			if(in.charAt(i)==' '||in.charAt(i)=='\t') {
+	    			if(in.charAt(i)==' '||in.charAt(i)=='\t'||in.charAt(i)=='\n'||in.charAt(i)=='\r') {
 	    				if(judge==0) {
 	    					begin=i+1;
 	    				}
@@ -175,8 +175,9 @@ public class program {
 	    			else
 	    				System.out.println("Ident("+in.substring(begin,i)+")");
 	    		}
-	    		else if(judge==2)
+	    		else if(judge==2) {
 	    			System.out.println("Int("+Integer.parseInt(in.substring(begin,i))+")");
+	    		}
 	    		judge=0;
 	    		begin=0;
 	        }
