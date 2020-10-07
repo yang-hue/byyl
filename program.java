@@ -2,24 +2,7 @@ import java.io.*;
 
 public class program {
 	public static void main(String args[]) {
-		File file = new File(args[0]);
-		StringBuilder sb = new StringBuilder();
-		try {
-			FileReader reader = new FileReader(file);
-			BufferedReader bReader = new BufferedReader(reader);
-	        String s = "";
-	        while ((s =bReader.readLine()) != null) {
-	            sb.append(s);
-	        }
-	        bReader.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        String in = sb.toString();
+        String in = args[0];
 		int i,judge=0,begin=0;
 		String str;
 		for(i=0;i<in.length();i++) {
