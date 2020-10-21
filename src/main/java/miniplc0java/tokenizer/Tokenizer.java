@@ -2,6 +2,7 @@ package miniplc0java.tokenizer;
 
 import miniplc0java.error.TokenizeError;
 import miniplc0java.error.ErrorCode;
+import miniplc0java.util.Pos;
 
 public class Tokenizer {
 
@@ -50,10 +51,10 @@ public class Tokenizer {
         Pos epos=it.currentPos();
         try{
             int value=Integer.parseInt(s.toString());
+            return new Token(TokenType.Uint,String.valueOf(value),spos,epos);
         }catch(Exception e){
             throw new TokenizeError(ErrorCode.InvalidVariableDeclaration,spos);
         }
-        return new Token(TokenType.Uint,value,spos,epos);
         //
         // 解析存储的字符串为无符号整数
         // 解析成功则返回无符号整数类型的token，否则返回编译错误
@@ -98,7 +99,6 @@ public class Tokenizer {
         // -- 否则，返回标识符
         //
         // Token 的 Value 应填写标识符或关键字的字符串
-        throw new Error("Not implemented");
     }
 
     private Token lexOperatorOrUnknown() throws TokenizeError {
