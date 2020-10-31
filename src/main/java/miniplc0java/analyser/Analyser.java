@@ -233,7 +233,7 @@ public final class Analyser {
             var nameToken = expect(TokenType.Ident);
 
             // 等于号
-            if(nextif(TokenType.Equal)!=null){
+            if(nextIf(TokenType.Equal)!=null){
                 // 表达式
                 analyseExpression();
 
